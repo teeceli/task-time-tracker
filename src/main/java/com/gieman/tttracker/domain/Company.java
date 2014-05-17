@@ -30,9 +30,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "ttt_company")
 @NamedQueries({
-    @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c"),
+    @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c ORDER BY c.companyName ASC"),
     @NamedQuery(name = "Company.findByIdCompany", query = "SELECT c FROM Company c WHERE c.idCompany = :idCompany"),
     @NamedQuery(name = "Company.findByCompanyName", query = "SELECT c FROM Company c WHERE c.companyName = :companyName")})
+
 public class Company implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

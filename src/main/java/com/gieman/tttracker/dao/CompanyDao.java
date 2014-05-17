@@ -13,12 +13,8 @@ import java.util.List;
  *
  * @author Timur Celikel
  */
-public interface CompanyDao {
-    
-    public Company find(Integer idCompany);
+public interface CompanyDao extends GenericDao<Company, Integer>{
+    // I'm assuming any class that implements this interface will still have to declare the persist, merge, and remove methods
     public List<Company> findAll();
-    public void persist(Company company);
-    public Company merge(Company company);
-    public void remove(Company company);
-    
+  
 }

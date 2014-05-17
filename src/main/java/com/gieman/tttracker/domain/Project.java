@@ -32,7 +32,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "ttt_project")
 @NamedQueries({
-    @NamedQuery(name = "Project.findAll", query = "SELECT p FROM Project p"),
+    @NamedQuery(name = "Project.findAll", query = "SELECT p FROM Project p ORDER BY p.projectName"),
     @NamedQuery(name = "Project.findByIdProject", query = "SELECT p FROM Project p WHERE p.idProject = :idProject"),
     @NamedQuery(name = "Project.findByProjectName", query = "SELECT p FROM Project p WHERE p.projectName = :projectName")})
 public class Project implements Serializable {
