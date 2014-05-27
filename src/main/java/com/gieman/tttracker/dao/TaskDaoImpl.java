@@ -6,7 +6,6 @@
 
 package com.gieman.tttracker.dao;
 
-import com.gieman.tttracker.domain.Project;
 import com.gieman.tttracker.domain.Task;
 import java.util.List;
 import org.springframework.stereotype.Repository;

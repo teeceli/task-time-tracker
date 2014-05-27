@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Timur Celikel
  */
-
+@Repository("companyDao")
 @Transactional
 public class CompanyDaoImpl extends GenericDaoImpl<Company, Integer> implements CompanyDao {
 

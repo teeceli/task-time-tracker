@@ -12,12 +12,14 @@ import com.gieman.tttracker.domain.User;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.TemporalType;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Timur Celikel
  */
 
+@Repository("taskLogDao")
 public class TaskLogDaoImpl extends GenericDaoImpl<TaskLog, Integer> implements TaskLogDao {
 
     public TaskLogDaoImpl() {

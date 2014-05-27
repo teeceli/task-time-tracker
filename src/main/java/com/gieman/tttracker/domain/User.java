@@ -35,7 +35,8 @@ import javax.validation.constraints.Pattern;
     @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
     @NamedQuery(name = "User.findByAdminRole", query = "SELECT u FROM User u WHERE u.adminRole = :adminRole")})
     @NamedQuery(name = "User.findByUsernamePassword", query = "SELECT u FROM User u WHERE u.password = :password AND (u.email = :username OR u.username = :username)")
-public class User implements Serializable {
+
+public class User extends AbstractEntity implements EntityItem<String> {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -131,6 +132,11 @@ public class User implements Serializable {
 
     public void setAdminRole(Character adminRole) {
         this.adminRole = adminRole;
+    }
+    
+    @Override
+    public String getId(){
+        return username;
     }
 
     @Override

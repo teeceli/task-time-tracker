@@ -6,7 +6,6 @@
 
 package com.gieman.tttracker.domain;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Basic;
@@ -34,7 +33,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Company.findByIdCompany", query = "SELECT c FROM Company c WHERE c.idCompany = :idCompany"),
     @NamedQuery(name = "Company.findByCompanyName", query = "SELECT c FROM Company c WHERE c.companyName = :companyName")})
 
-public class Company implements Serializable {
+public class Company extends AbstractEntity implements EntityItem<Integer> {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,6 +82,11 @@ public class Company implements Serializable {
 
     public void setProjects(List<Project> projects) {
         this.projects = projects;
+    }
+    
+    @Override
+    public Integer getId() {
+        return idCompany;
     }
 
     @Override

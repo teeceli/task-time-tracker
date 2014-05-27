@@ -35,7 +35,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Project.findAll", query = "SELECT p FROM Project p ORDER BY p.projectName"),
     @NamedQuery(name = "Project.findByIdProject", query = "SELECT p FROM Project p WHERE p.idProject = :idProject"),
     @NamedQuery(name = "Project.findByProjectName", query = "SELECT p FROM Project p WHERE p.projectName = :projectName")})
-public class Project implements Serializable {
+public class Project extends AbstractEntity implements EntityItem<Integer> {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,6 +95,11 @@ public class Project implements Serializable {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+    
+    @Override
+    public Integer getId(){
+        return idProject;
     }
 
     @Override

@@ -37,7 +37,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "TaskLog.findTaskLogCountByUser", query = "SELECT count(tl) FROM TaskLog tl WHERE tl.user = :user ")
     })
 
-public class TaskLog implements Serializable {
+public class TaskLog extends AbstractEntity implements EntityItem<Integer> {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -125,6 +125,11 @@ public class TaskLog implements Serializable {
 
     public void setTask(Task task) {
         this.task = task;
+    }
+    
+    @Override
+    public Integer getId(){
+        return idTaskLog;
     }
 
     @Override

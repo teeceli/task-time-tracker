@@ -34,22 +34,25 @@ public class UserDaoImpl extends GenericDaoImpl<User, String> implements UserDao
     @Override
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public User findByUsernamePassword(String username, String password) {
-        List<User> users = em.createNamedQuery("User.findByUsernamePassword")
-                                .setParameter("username", username)
-                                .setParameter("password", password)
-                                .getResultList();
+        User user = null;
         
-        return (users.size() == 1 ? users.get(0) : null);
+        user = (User) em.createNamedQuery("User.findByUsernamePassword")
+                 .setParameter("username", username)
+                 .setParameter("password", password)
+                 .getSingleResult();
+        
+        return user;
     }
     
     @Override
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public User findByUsername(String username) {
-        List<User> users = em.createNamedQuery("User.findByUsername")
+        User user = null;
+        user = (User) em.createNamedQuery("User.findByUsername")
                              .setParameter("username", username)
-                             .getResultList();
+                             .getSingleResult();
         
-        return (users.size() == 1 ? users.get(0) : null);
+        return user;
     }
     
     @Override
